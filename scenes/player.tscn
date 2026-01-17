@@ -29,7 +29,7 @@ fill = 1
 fill_from = Vector2(0.49532712, 0.4906542)
 fill_to = Vector2(0.43925235, 0)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_3vyb7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

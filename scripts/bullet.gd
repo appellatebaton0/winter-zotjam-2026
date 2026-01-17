@@ -1,5 +1,6 @@
 class_name Bullet extends Area2D
 
+@export var charge_amount := 1.0
 @export var speed := 7.0
 
 var direction:Vector2

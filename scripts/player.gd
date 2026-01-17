@@ -1,5 +1,10 @@
 class_name Player extends CharacterBody2D
 
+# Light
+
+var light_amount := 1.0
+@onready var light := $PointLight2D
+
 # Gun
 
 @onready var gun_pivot := $Pivot
@@ -61,7 +66,16 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
+	
+	# Light
+	
+	light_amount = move_toward(min(light_amount, 2.0), 0.0, delta)
+	
+	light.texture_scale = clamp(light_amount, 0.4, 1.5)
+	
+	
+	# Gun
 	
 	var mouse_pos := get_global_mouse_position()
 	

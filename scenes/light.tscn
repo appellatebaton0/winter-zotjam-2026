@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=3 uid="uid://yl56sogkhuv3"]
+
+[ext_resource type="Script" uid="uid://mp07pimhmyp5" path="res://scripts/light.gd" id="1_24oxn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_24oxn"]
+radius = 42.426407
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cur4t"]
+radius = 11.0
+
+[sub_resource type="Gradient" id="Gradient_cur4t"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_24oxn"]
+gradient = SubResource("Gradient_cur4t")
+width = 6
+height = 6
+use_hdr = true
+
+[sub_resource type="Gradient" id="Gradient_2e2gu"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ky1i4"]
+gradient = SubResource("Gradient_2e2gu")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[node name="Light" type="Area2D"]
+script = ExtResource("1_24oxn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_24oxn")
+
+[node name="LightHit" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LightHit"]
+shape = SubResource("CircleShape2D_cur4t")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("GradientTexture2D_24oxn")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+texture = SubResource("GradientTexture2D_ky1i4")
+texture_scale = 1.5
+
+[connection signal="area_entered" from="LightHit" to="." method="_on_hit_area_entered"]
