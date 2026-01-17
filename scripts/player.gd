@@ -1,5 +1,14 @@
 class_name Player extends CharacterBody2D
 
+# Gun
+
+@onready var gun_pivot := $Pivot
+@onready var shoot_point := $Pivot/ShootPoint
+
+@onready var bullet_scene := preload("res://scenes/bullet.tscn")
+
+# Movement
+
 @export var max_speed := 40.0
 @export var acceleration := 5.0
 @export var friction := 7.0
@@ -51,3 +60,23 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0.0, friction * 60 * delta * (1.0 if is_on_floor() else 0.4))
 	
 	move_and_slide()
+
+func _process(delta: float) -> void:
+	
+	var mouse_pos := get_global_mouse_position()
+	
+	gun_pivot.look_at(mouse_pos)
+	
+	if Input.is_action_just_pressed("Fire") and has_bullets():
+		# Fire
+		
+		var new:Bullet = bullet_scene.instantiate()
+		
+		var level := get_tree().get_first_node_in_group("Level")
+		
+		level.add_child(new)
+		
+		new.direction = shoot_point.global_position.direction_to(mouse_pos)
+		new.global_position = shoot_point.global_position
+
+func has_bullets() -> bool: return true

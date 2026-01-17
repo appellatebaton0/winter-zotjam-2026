@@ -13,7 +13,7 @@ occlusion_layer_0/light_mask = 1
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_sugp2")
 
-[node name="Main" type="Node"]
+[node name="Main" type="Node" groups=["Level"]]
 
 [node name="Player" parent="." instance=ExtResource("1_o5qli")]
 max_speed = 150.0
