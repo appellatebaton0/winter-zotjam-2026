@@ -1,0 +1,298 @@
+[gd_scene load_steps=4 format=3 uid="uid://c4t47uj61wtu5"]
+
+[ext_resource type="Script" uid="uid://bgwfqxprhwkev" path="res://addons/godot_super-wakatime/counter.gd" id="1_yp2cc"]
+[ext_resource type="Texture2D" uid="uid://bi21lnxqhc40y" path="res://addons/godot_super-wakatime/pie_cutout.svg" id="2_vc57w"]
+
+[sub_resource type="Theme" id="Theme_hx316"]
+PanelContainer/styles/panel = null
+
+[node name="Counter" type="Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 380.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 8
+theme = SubResource("Theme_hx316")
+script = ExtResource("1_yp2cc")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="HBoxContainer" parent="HBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ProjectName" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 21
+text = "Project: testing"
+
+[node name="Today" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 21
+text = "Today: 10m"
+
+[node name="AllTime" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 21
+text = "AllTime: 10h 10m"
+
+[node name="ID" type="LineEdit" parent="HBoxContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 18
+placeholder_text = "Slack ID"
+
+[node name="Control" type="Control" parent="HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/MarginContainer/VBoxContainer/Control"]
+clip_children = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -96.0
+offset_top = -96.0
+offset_right = 96.0
+offset_bottom = 96.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+texture = ExtResource("2_vc57w")
+stretch_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer/MarginContainer/VBoxContainer/Control/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.3764706, 1, 1)
+
+[node name="DailyRatio" type="TextureProgressBar" parent="HBoxContainer/MarginContainer/VBoxContainer/Control"]
+clip_children = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -96.0
+offset_top = -96.0
+offset_right = 96.0
+offset_bottom = 96.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+value = 21.0
+fill_mode = 4
+texture_progress = ExtResource("2_vc57w")
+
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer/MarginContainer/VBoxContainer/Control/DailyRatio"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer3" type="MarginContainer" parent="HBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="VBoxContainer" parent="HBoxContainer/PanelContainer/MarginContainer3"]
+custom_minimum_size = Vector2(25, 0)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/PanelContainer/MarginContainer3/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+stretch_mode = 2
+
+[node name="UnderColor" type="ColorPickerButton" parent="HBoxContainer/PanelContainer/MarginContainer3/HBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="OverColor" type="ColorPickerButton" parent="HBoxContainer/PanelContainer/MarginContainer3/HBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_vertical = 3
+color = Color(0.62352943, 0, 0, 1)
+
+[node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer2" type="HBoxContainer" parent="HBoxContainer/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/MarginContainer2/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/MarginContainer2/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/MarginContainer2/VBoxContainer2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/MarginContainer2/VBoxContainer2/VBoxContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 21
+text = "Goal Format:"
+
+[node name="Label2" type="Label" parent="HBoxContainer/MarginContainer2/VBoxContainer2/VBoxContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 21
+text = "Total Hours:"
+
+[node name="Label3" type="Label" parent="HBoxContainer/MarginContainer2/VBoxContainer2/VBoxContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 21
+text = "End Date:"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer/MarginContainer2/VBoxContainer2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="GoalFormat" type="OptionButton" parent="HBoxContainer/MarginContainer2/VBoxContainer2/VBoxContainer/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 19
+selected = 0
+item_count = 1
+popup/item_0/text = "Total"
+popup/item_0/id = 0
+
+[node name="Total" type="LineEdit" parent="HBoxContainer/MarginContainer2/VBoxContainer2/VBoxContainer/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 19
+placeholder_text = "10.5"
+
+[node name="EndDate" type="LineEdit" parent="HBoxContainer/MarginContainer2/VBoxContainer2/VBoxContainer/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 19
+placeholder_text = "yyyy-mm-dd"
+
+[node name="Update" type="Button" parent="HBoxContainer/MarginContainer2/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 24
+text = "Update Statistics"
+
+[node name="Control" type="Control" parent="HBoxContainer/MarginContainer2/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/MarginContainer2/VBoxContainer2/Control"]
+clip_children = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -96.0
+offset_top = -96.0
+offset_right = 96.0
+offset_bottom = 96.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+texture = ExtResource("2_vc57w")
+stretch_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer/MarginContainer2/VBoxContainer2/Control/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.3764706, 1, 1)
+
+[node name="RightProgress" type="TextureProgressBar" parent="HBoxContainer/MarginContainer2/VBoxContainer2/Control"]
+clip_children = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -96.0
+offset_top = -96.0
+offset_right = 96.0
+offset_bottom = 96.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+value = 21.0
+fill_mode = 4
+texture_progress = ExtResource("2_vc57w")
+
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer/MarginContainer2/VBoxContainer2/Control/RightProgress"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[connection signal="text_changed" from="HBoxContainer/MarginContainer/VBoxContainer/VBoxContainer/ID" to="." method="_on_text_changed"]
+[connection signal="color_changed" from="HBoxContainer/PanelContainer/MarginContainer3/HBoxContainer/UnderColor" to="." method="_on_color_changed"]
+[connection signal="color_changed" from="HBoxContainer/PanelContainer/MarginContainer3/HBoxContainer/OverColor" to="." method="_on_color_changed"]
+[connection signal="item_selected" from="HBoxContainer/MarginContainer2/VBoxContainer2/VBoxContainer/HBoxContainer/VBoxContainer2/GoalFormat" to="." method="_on_item_selected"]
+[connection signal="text_changed" from="HBoxContainer/MarginContainer2/VBoxContainer2/VBoxContainer/HBoxContainer/VBoxContainer2/Total" to="." method="_on_text_changed"]
+[connection signal="text_changed" from="HBoxContainer/MarginContainer2/VBoxContainer2/VBoxContainer/HBoxContainer/VBoxContainer2/EndDate" to="." method="_on_text_changed"]
+[connection signal="pressed" from="HBoxContainer/MarginContainer2/VBoxContainer2/VBoxContainer/Update" to="." method="_update"]
