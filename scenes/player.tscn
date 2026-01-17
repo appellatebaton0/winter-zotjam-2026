@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dibn36a50scbs"]
+[gd_scene load_steps=9 format=3 uid="uid://dibn36a50scbs"]
 
 [ext_resource type="Script" uid="uid://c6uwlb0sd0p40" path="res://scripts/player.gd" id="1_3vyb7"]
 
@@ -19,6 +19,16 @@ gradient = SubResource("Gradient_3vyb7")
 width = 7
 height = 3
 
+[sub_resource type="Gradient" id="Gradient_g2els"]
+offsets = PackedFloat32Array(0, 0.72, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.16666669, 0.16666669, 0.16666669, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qhqgy"]
+gradient = SubResource("Gradient_g2els")
+fill = 1
+fill_from = Vector2(0.49532712, 0.4906542)
+fill_to = Vector2(0.43925235, 0)
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_3vyb7")
 
@@ -36,3 +46,8 @@ texture = SubResource("GradientTexture2D_g2els")
 
 [node name="ShootPoint" type="Node2D" parent="Pivot"]
 position = Vector2(19, 0)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_qhqgy")
+texture_scale = 2.0

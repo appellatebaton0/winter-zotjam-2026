@@ -61,7 +61,7 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	
 	var mouse_pos := get_global_mouse_position()
 	
@@ -76,7 +76,7 @@ func _process(delta: float) -> void:
 		
 		level.add_child(new)
 		
-		new.direction = shoot_point.global_position.direction_to(mouse_pos)
+		new.direction = global_position.direction_to(shoot_point.global_position)
 		new.global_position = shoot_point.global_position
 
 func has_bullets() -> bool: return true
